@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <LegalPage title="Privacy Policy" lastUpdated={lastUpdated}>
+    <LegalPage title="Privacy Policy" lastUpdated={lastUpdated} icon="/assets/solver-icons/solver-icons-select26.webp">
       <p>
         {solverConfig.brand.legalName} (&quot;Solver&quot;, &quot;we&quot;, &quot;us&quot; or &quot;our&quot;), company number [COMPANY REGISTRATION NUMBER], registered office at [REGISTERED OFFICE ADDRESS], is the data controller responsible for your personal data when you use solveraccommodations.com (the &quot;Site&quot;) or contact us to enquire about a stay.
       </p>

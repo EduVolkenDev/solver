@@ -14,6 +14,7 @@ import {
 import { Icon } from "./Icon";
 
 const heroImage = "/assets/solver-hero.webp";
+const locationImage = "/assets/solver-london-location.webp";
 const brandMarkImage = "/assets/solver-mark.webp";
 const brandWordmarkImage = "/assets/solver-wordmark.webp";
 const signatureDoorImage = "/assets/solver-signature-door.webp";
@@ -31,6 +32,27 @@ const identityIcons = {
   train: "/assets/solver-icons/solver-icons-select23.webp",
   whatsapp: "/assets/solver-icons/solver-icons-select17.webp",
   wifi: "/assets/solver-icons/solver-icons-select15.webp",
+} as const;
+
+const detailIcons = {
+  tag: "/assets/solver-icons/solver-icons-select11.webp",
+  info: "/assets/solver-icons/solver-icons-select12.webp",
+  pin: "/assets/solver-icons/solver-icons-select13.webp",
+  camera: "/assets/solver-icons/solver-icons-select19.webp",
+  star: "/assets/solver-icons/solver-icons-select20.webp",
+  bell: "/assets/solver-icons/solver-icons-select21.webp",
+  car: "/assets/solver-icons/solver-icons-select24.webp",
+  card: "/assets/solver-icons/solver-icons-select25.webp",
+  lock: "/assets/solver-icons/solver-icons-select26.webp",
+  clock: "/assets/solver-icons/solver-icons-select27.webp",
+  user: "/assets/solver-icons/solver-icons-select28.webp",
+  question: "/assets/solver-icons/solver-icons-select29.webp",
+  wifi: "/assets/solver-icons/solver-icons-select3.webp",
+  keys: "/assets/solver-icons/solver-icons-select4.webp",
+  headphones: "/assets/solver-icons/solver-icons-select5.webp",
+  shield: "/assets/solver-icons/solver-icons-select6.webp",
+  bed: "/assets/solver-icons/solver-icons-select8.webp",
+  luggage: "/assets/solver-icons/solver-icons-utils2.png",
 } as const;
 
 const superIcons = {
@@ -306,11 +328,11 @@ export default function SolverLanding() {
           <Reveal className="booking-steps" delay={120}>
             <img className="booking-steps__super" src={superIcons.calendar} alt="" width="1180" height="1400" loading="lazy" />
             {[
-              ["01", "Browse", "Discover the right stay for your London plans."],
-              ["02", "Enquire", "Ask a simple question through your preferred channel."],
-              ["03", "Confirm", "Arrange the details directly with our team."],
-              ["04", "Stay", "Arrive with the essentials already solved."],
-            ].map(([number, title, copy], index) => <div className="booking-step" key={number}><span className="booking-step__number">{number}</span><div><h3>{title}</h3><p>{copy}</p></div>{index < 3 ? <span className="booking-step__connector" /> : null}</div>)}
+              ["01", "Browse", "Discover the right stay for your London plans.", detailIcons.camera],
+              ["02", "Enquire", "Ask a simple question through your preferred channel.", detailIcons.question],
+              ["03", "Confirm", "Arrange the details directly with our team.", detailIcons.card],
+              ["04", "Stay", "Arrive with the essentials already solved.", detailIcons.keys],
+            ].map(([number, title, copy, icon], index) => <div className="booking-step" key={number}><span className="booking-step__number">{number}</span><div><h3>{title}</h3><p>{copy}</p></div><IdentityIcon className="booking-step__icon" src={icon} width={1530} height={1326} />{index < 3 ? <span className="booking-step__connector" /> : null}</div>)}
           </Reveal>
         </div>
       </section>
@@ -328,7 +350,7 @@ export default function SolverLanding() {
 
       <section className="section section--location" id="location" aria-labelledby="location-title">
         <div className="container location-grid">
-          <Reveal className="location-card"><div className="location-card__map"><div className="map-grid" /><span className="map-route map-route--one" /><span className="map-route map-route--two" /><img className="location-card__super-pin" src={superIcons.location} alt="" width="1354" height="1400" loading="lazy" /><span className="map-label">LONDON</span></div><div className="location-card__footer"><span><IdentityIcon className="location-card__footer-icon" src={identityIcons.train} /> London, UK</span><span>Area details on request</span></div></Reveal>
+          <Reveal className="location-card"><div className="location-card__map"><img className="location-card__image" src={locationImage} alt="London skyline with Big Ben and the London Eye at sunset" width="1254" height="1254" loading="lazy" /><div className="map-grid" /><span className="map-route map-route--one" /><span className="map-route map-route--two" /><span className="map-label">LONDON</span></div><div className="location-card__footer"><span><IdentityIcon className="location-card__footer-icon" src={identityIcons.train} /> London, UK</span><span>Area details on request</span></div></Reveal>
           <Reveal className="location-copy" delay={100}><SectionIntro headingId="location-title" eyebrow="Location" title={<>Your base for<br /><em>London.</em></>} body="Solver Accommodation operates in London, offering a practical and comfortable base for short stays across the city." /><div className="location-note"><Icon name="shield" size={19} /><p>We keep exact residential addresses private until a booking is confirmed through the appropriate channel.</p></div><a className="button button--outline" href="#contact">Contact the team <Icon name="arrow" size={17} /></a></Reveal>
         </div>
       </section>
@@ -337,12 +359,12 @@ export default function SolverLanding() {
         <div className="container contact-panel">
           <img className="contact-panel__super" src={superIcons.whatsapp} alt="" width="1267" height="1400" loading="lazy" />
           <Reveal><p className="eyebrow eyebrow--gold">Contact Solver</p><h2 id="contact-title">Let&apos;s solve<br /><em>your stay.</em></h2><p className="contact-panel__lede">Tell us a little about your plans and we&apos;ll help you understand the next step.</p></Reveal>
-          <Reveal className="contact-actions" delay={100}><WhatsAppLink className="button button--gold" message={defaultWhatsAppMessage}><Icon name="message" size={18} /> Enquire on WhatsApp <Icon name="arrow" size={17} /></WhatsAppLink><div className="contact-detail"><Icon name="mail" size={18} /><span>{solverConfig.contact.email || "Email address to be configured"}</span></div><div className="contact-detail"><Icon name="pin" size={18} /><span>{solverConfig.contact.serviceArea}</span></div></Reveal>
+          <Reveal className="contact-actions" delay={100}><WhatsAppLink className="button button--gold" message={defaultWhatsAppMessage}><Icon name="message" size={18} /> Enquire on WhatsApp <Icon name="arrow" size={17} /></WhatsAppLink><div className="contact-detail"><IdentityIcon className="contact-detail__image" src={identityIcons.mail} width={1530} height={1326} /><span>{solverConfig.contact.email || "Email address to be configured"}</span></div><div className="contact-detail"><IdentityIcon className="contact-detail__image" src={detailIcons.pin} width={1530} height={1326} /><span>{solverConfig.contact.serviceArea}</span></div></Reveal>
         </div>
       </section>
 
       <footer className="site-footer">
-        <div className="container footer-grid"><div className="footer-brand"><BrandLogo /><p>{solverConfig.brand.slogan}</p></div><div className="footer-links"><p className="eyebrow">Explore</p>{solverConfig.navigation.map((item) => <a href={item.href} key={item.href}>{item.label}</a>)}</div><div className="footer-links"><p className="eyebrow">Connect</p><WhatsAppLink className="footer-link" message={defaultWhatsAppMessage}>WhatsApp</WhatsAppLink><span>London, United Kingdom</span><span>{solverConfig.contact.email || "Email to be configured"}</span></div></div>
+        <div className="container footer-grid"><div className="footer-brand"><BrandLogo /><p>{solverConfig.brand.slogan}</p><div className="footer-details" aria-label="Solver details">{[[detailIcons.tag, "Flexible stays"], [detailIcons.star, "Thoughtful service"], [detailIcons.headphones, "Direct support"], [detailIcons.lock, "Private details"]].map(([src, label]) => <span className="footer-detail" key={label}><IdentityIcon className="footer-detail__icon" src={src} width={1530} height={1326} /><span>{label}</span></span>)}</div></div><div className="footer-links"><p className="eyebrow">Explore</p>{solverConfig.navigation.map((item) => <a href={item.href} key={item.href}>{item.label}</a>)}</div><div className="footer-links"><p className="eyebrow">Connect</p><WhatsAppLink className="footer-link" message={defaultWhatsAppMessage}>WhatsApp</WhatsAppLink><span>London, United Kingdom</span><span>{solverConfig.contact.email || "Email to be configured"}</span></div></div>
         <div className="container footer-bottom"><span>© {new Date().getFullYear()} {solverConfig.brand.legalName}</span><nav className="footer-legal-links" aria-label="Legal information"><a className="footer-legal-link" href="/privacy">Privacy Policy</a><a className="footer-legal-link" href="/terms">Terms of Service</a><span>Designed and developed by VOLYNX.</span></nav></div>
       </footer>
 

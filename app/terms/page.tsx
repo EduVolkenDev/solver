@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <LegalPage title="Terms of Service" lastUpdated={lastUpdated}>
+    <LegalPage title="Terms of Service" lastUpdated={lastUpdated} icon="/assets/solver-icons/solver-icons-select12.webp">
       <p>
         These Terms of Service (&quot;Terms&quot;) govern your use of the website solveraccommodations.com (the &quot;Site&quot;) and any enquiry, communication or booking-related interaction you have with {solverConfig.brand.legalName} (&quot;Solver&quot;, &quot;we&quot;, &quot;us&quot; or &quot;our&quot;), a company registered in England and Wales under company number [COMPANY REGISTRATION NUMBER], with its registered office at [REGISTERED OFFICE ADDRESS].
       </p>

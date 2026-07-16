@@ -39,8 +39,13 @@ test("server-renders the Solver landing page", async () => {
   assert.match(html, /solver-mark\.webp/);
   assert.match(html, /solver-wordmark\.webp/);
   assert.match(html, /solver-signature-door\.webp/);
+  assert.match(html, /solver-london-location\.webp/);
   assert.match(html, /solver-super-icons\/optimized\/solver-icons-super/);
   assert.match(html, /solver-icons\/solver-icons-select/);
+  assert.match(html, /solver-icons-select11\.webp/);
+  assert.match(html, /solver-icons-select20\.webp/);
+  assert.match(html, /solver-icons-select26\.webp/);
+  assert.match(html, /solver-icons-select5\.webp/);
   assert.doesNotMatch(html, /brand-lockup__words/);
   assert.match(html, /application\/ld\+json/);
   for (const headingId of ["signature-title", "about-title", "profiles-title", "experience-title", "accommodation-title", "platforms-title", "location-title"]) {
@@ -71,6 +76,7 @@ test("renders the legal pages", async () => {
     assert.match(html, new RegExp(`<h1[^>]*>${heading}<\\/h1>`));
     assert.match(html, /Privacy Policy|Terms of Service/);
     assert.match(html, /Back to Solver Accommodations/);
+    assert.match(html, /solver-icons-select(?:12|26)\.webp/);
   }
 });
 
