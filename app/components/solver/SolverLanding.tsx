@@ -127,11 +127,11 @@ function WhatsAppLink({ children, className = "button button--gold", message = d
   );
 }
 
-function SectionIntro({ eyebrow, title, body, align = "left" }: { eyebrow: string; title: React.ReactNode; body?: string; align?: "left" | "center" }) {
+function SectionIntro({ eyebrow, title, body, align = "left", headingId }: { eyebrow: string; title: React.ReactNode; body?: string; align?: "left" | "center"; headingId?: string }) {
   return (
     <div className={`section-intro section-intro--${align}`}>
       <p className="eyebrow">{eyebrow}</p>
-      <h2>{title}</h2>
+      <h2 id={headingId}>{title}</h2>
       {body ? <p className="section-intro__body">{body}</p> : null}
     </div>
   );
@@ -215,8 +215,8 @@ export default function SolverLanding() {
             <span className="signature-art__halo" />
           </Reveal>
           <Reveal className="signature-copy" delay={100}>
-            <SectionIntro eyebrow="Solver signature" title={<>A welcome<br />that feels<br /><em>already<span className="signature-mobile-break"><br /></span><span className="signature-desktop-space"> </span>considered.</em></>} body="This piece carries the Solver identity: a calm entrance, warm details and the sense that the stay has been prepared before you arrive." />
-            <div className="signature-points" aria-label="Solver identity principles">
+            <SectionIntro headingId="signature-title" eyebrow="Solver signature" title={<>A welcome<br />that feels<br /><em>already<span className="signature-mobile-break"><br /></span><span className="signature-desktop-space"> </span>considered.</em></>} body="This piece carries the Solver identity: a calm entrance, warm details and the sense that the stay has been prepared before you arrive." />
+            <div className="signature-points" role="group" aria-label="Solver identity principles">
               {[
                 [identityIcons.keys, "Clear arrival"],
                 [identityIcons.bed, "Comfort first"],
@@ -242,7 +242,7 @@ export default function SolverLanding() {
             <IdentityIcon className="about-visual__identity" src={superIcons.shield} width={1066} height={1400} />
           </Reveal>
           <Reveal className="about-copy" delay={100}>
-            <SectionIntro eyebrow="About Solver" title={<>A more considered way<br />to stay in London.</>} body="Solver Accommodation K&D Limited provides professionally managed short-term accommodation in London. We welcome business travellers, short-stay tourists and university students looking for a comfortable and convenient place to stay." />
+            <SectionIntro headingId="about-title" eyebrow="About Solver" title={<>A more<span className="about-mobile-break"><br /></span> considered way<br />to stay in London.</>} body="Solver Accommodation K&D Limited provides professionally managed short-term accommodation in London. We welcome business travellers, short-stay tourists and university students looking for a comfortable and convenient place to stay." />
             <div className="editorial-note"><span>Our approach</span><p>Clear communication, a comfortable base and a simpler way to arrange your stay.</p></div>
             <a className="text-link" href="#stays">See who we welcome <Icon name="arrow" size={17} /></a>
           </Reveal>
@@ -251,7 +251,7 @@ export default function SolverLanding() {
 
       <section className="section section--profiles" id="stays" aria-labelledby="profiles-title">
         <div className="container">
-          <Reveal><SectionIntro eyebrow="Who we welcome" title={<>A stay shaped around<br /><em>your reason for travelling.</em></>} body="Different journeys ask for different kinds of comfort. Solver keeps the essentials simple, considered and easy to arrange." /></Reveal>
+          <Reveal><SectionIntro headingId="profiles-title" eyebrow="Who we welcome" title={<>A stay shaped around<br /><em>your reason for travelling.</em></>} body="Different journeys ask for different kinds of comfort. Solver keeps the essentials simple, considered and easy to arrange." /></Reveal>
           <div className="profile-grid">
             {[
               { number: "01", icon: "suitcase", image: superIcons.suitcase, width: 1062, height: 1400, title: "Business Travellers", copy: "Convenient short stays, reliable communication and a comfortable environment for work trips." },
@@ -271,7 +271,7 @@ export default function SolverLanding() {
 
       <section className="section section--experience" aria-labelledby="experience-title">
         <div className="container experience-grid">
-          <Reveal className="experience-copy"><SectionIntro eyebrow="The stay experience" title={<>The essentials,<br /><em>thoughtfully handled.</em></>} body="A short stay should feel clear from the first enquiry. These are the principles behind the Solver experience." /><WhatsAppLink className="button button--outline" message={"Hello, I would like to learn more about staying with Solver Accommodation."}>Talk to our team <Icon name="arrow" size={17} /></WhatsAppLink></Reveal>
+          <Reveal className="experience-copy"><SectionIntro headingId="experience-title" eyebrow="The stay experience" title={<>The essentials,<br /><em>thoughtfully handled.</em></>} body="A short stay should feel clear from the first enquiry. These are the principles behind the Solver experience." /><WhatsAppLink className="button button--outline" message={"Hello, I would like to learn more about staying with Solver Accommodation."}>Talk to our team <Icon name="arrow" size={17} /></WhatsAppLink></Reveal>
           <div className="experience-system">
             <Reveal className="super-feature super-feature--wifi" delay={80}>
               <img className="super-feature__art" src={superIcons.wifi} alt="" width="1400" height="1347" loading="lazy" />
@@ -294,7 +294,7 @@ export default function SolverLanding() {
           <img className="accommodation-panel__super accommodation-panel__super--suitcase" src={superIcons.suitcase} alt="" width="1062" height="1400" loading="lazy" />
           <IdentityIcon className="accommodation-panel__mini accommodation-panel__mini--bed" src={identityIcons.bed} />
           <div className="accommodation-panel__ornament"><span /> <Icon name="door" size={22} /> <span /></div>
-          <Reveal><SectionIntro align="center" eyebrow="Accommodation preview" title={<>Room details are<br /><em>being prepared.</em></>} body="Our accommodation experience is being prepared with the same care we bring to every stay. Direct booking options will be available soon." /></Reveal>
+          <Reveal><SectionIntro headingId="accommodation-title" align="center" eyebrow="Accommodation preview" title={<>Room details are<br /><em>being prepared.</em></>} body="Our accommodation experience is being prepared with the same care we bring to every stay. Direct booking options will be available soon." /></Reveal>
           <Reveal className="accommodation-panel__meta" delay={100}><span><Icon name="spark" size={16} /> Designed for short stays</span><span><Icon name="message" size={16} /> Ask about current availability</span></Reveal>
           <Reveal delay={160}><WhatsAppLink className="button button--gold" message={"Hello, I would like to ask about current accommodation availability in London."}>Ask about current availability <Icon name="arrow" size={17} /></WhatsAppLink></Reveal>
         </div>
@@ -317,11 +317,11 @@ export default function SolverLanding() {
 
       <section className="section section--platforms" aria-labelledby="platforms-title">
         <div className="container">
-          <Reveal><SectionIntro align="center" eyebrow="How to enquire" title={<>Choose the channel<br /><em>that suits you.</em></>} body="WhatsApp is our direct enquiry channel. Current listings may also be available through trusted booking platforms." /></Reveal>
+          <Reveal><SectionIntro headingId="platforms-title" align="center" eyebrow="How to enquire" title={<>Choose the channel<br /><em>that suits you.</em></>} body="WhatsApp is our direct enquiry channel. Current listings may also be available through trusted booking platforms." /></Reveal>
           <div className="platform-grid">
             <Reveal className="platform-card platform-card--primary"><div className="platform-card__icon"><IdentityIcon src={identityIcons.whatsapp} /></div><div><p className="eyebrow eyebrow--gold">Preferred channel</p><h3>WhatsApp</h3><p>Message our team directly about current availability and short stays in London.</p><WhatsAppLink className="text-link" message={defaultWhatsAppMessage}>Start an enquiry <Icon name="arrow" size={16} /></WhatsAppLink></div></Reveal>
-            <Reveal className="platform-card" delay={80}><div className="platform-card__icon"><IdentityIcon src={identityIcons.home} /></div><div><p className="eyebrow">Trusted platform</p><h3>Airbnb</h3><p>Our Airbnb link will be added here once the official listing URL is confirmed.</p><span className="platform-card__pending">Link to be configured</span></div></Reveal>
-            <Reveal className="platform-card" delay={160}><div className="platform-card__icon"><IdentityIcon src={identityIcons.calendar} /></div><div><p className="eyebrow">Trusted platform</p><h3>Booking.com</h3><p>Our Booking.com link will be added here once the official listing URL is confirmed.</p><span className="platform-card__pending">Link to be configured</span></div></Reveal>
+            <Reveal className="platform-card" delay={80}><div className="platform-card__icon"><IdentityIcon src={identityIcons.home} /></div><div><p className="eyebrow">Trusted platform</p><h3>Airbnb</h3><p>{solverConfig.platforms.airbnb ? "Explore our current Airbnb listing and enquire through the platform." : "Our Airbnb link will be added here once the official listing URL is confirmed."}</p>{solverConfig.platforms.airbnb ? <a className="text-link" href={solverConfig.platforms.airbnb} target="_blank" rel="noreferrer">View Airbnb listing <Icon name="arrow" size={16} /></a> : <span className="platform-card__pending">Link to be configured</span>}</div></Reveal>
+            <Reveal className="platform-card" delay={160}><div className="platform-card__icon"><IdentityIcon src={identityIcons.calendar} /></div><div><p className="eyebrow">Trusted platform</p><h3>Booking.com</h3><p>{solverConfig.platforms.bookingCom ? "Explore our current Booking.com listing and enquire through the platform." : "Our Booking.com link will be added here once the official listing URL is confirmed."}</p>{solverConfig.platforms.bookingCom ? <a className="text-link" href={solverConfig.platforms.bookingCom} target="_blank" rel="noreferrer">View Booking.com listing <Icon name="arrow" size={16} /></a> : <span className="platform-card__pending">Link to be configured</span>}</div></Reveal>
           </div>
         </div>
       </section>
@@ -329,7 +329,7 @@ export default function SolverLanding() {
       <section className="section section--location" id="location" aria-labelledby="location-title">
         <div className="container location-grid">
           <Reveal className="location-card"><div className="location-card__map"><div className="map-grid" /><span className="map-route map-route--one" /><span className="map-route map-route--two" /><img className="location-card__super-pin" src={superIcons.location} alt="" width="1354" height="1400" loading="lazy" /><span className="map-label">LONDON</span></div><div className="location-card__footer"><span><IdentityIcon className="location-card__footer-icon" src={identityIcons.train} /> London, UK</span><span>Area details on request</span></div></Reveal>
-          <Reveal className="location-copy" delay={100}><SectionIntro eyebrow="Location" title={<>Your base for<br /><em>London.</em></>} body="Solver Accommodation operates in London, offering a practical and comfortable base for short stays across the city." /><div className="location-note"><Icon name="shield" size={19} /><p>We keep exact residential addresses private until a booking is confirmed through the appropriate channel.</p></div><a className="button button--outline" href="#contact">Contact the team <Icon name="arrow" size={17} /></a></Reveal>
+          <Reveal className="location-copy" delay={100}><SectionIntro headingId="location-title" eyebrow="Location" title={<>Your base for<br /><em>London.</em></>} body="Solver Accommodation operates in London, offering a practical and comfortable base for short stays across the city." /><div className="location-note"><Icon name="shield" size={19} /><p>We keep exact residential addresses private until a booking is confirmed through the appropriate channel.</p></div><a className="button button--outline" href="#contact">Contact the team <Icon name="arrow" size={17} /></a></Reveal>
         </div>
       </section>
 
