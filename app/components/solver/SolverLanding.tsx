@@ -240,7 +240,6 @@ export default function SolverLanding() {
               <div className="image-caption"><span className="image-caption__line" /> <span>Stay with intention</span></div>
             </div>
             <IdentityIcon className="about-visual__identity" src={superIcons.shield} width={1066} height={1400} />
-            <div className="about-visual__stamp"><Icon name="spark" size={21} /><span>London<br />short stays</span></div>
           </Reveal>
           <Reveal className="about-copy" delay={100}>
             <SectionIntro eyebrow="About Solver" title={<>A more considered way<br />to stay in London.</>} body="Solver Accommodation K&D Limited provides professionally managed short-term accommodation in London. We welcome business travellers, short-stay tourists and university students looking for a comfortable and convenient place to stay." />
