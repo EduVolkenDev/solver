@@ -219,10 +219,10 @@ h3 { letter-spacing: -.02em; }
 .location-note p { margin: 0; font-size: 12px; line-height: 1.6; }
 
 .section--contact { padding: 115px 0; background: var(--forest); }
-.contact-panel { position: relative; display: grid; grid-template-columns: 1.15fr .85fr; align-items: end; gap: 80px; overflow: hidden; }
-.contact-panel::before { position: absolute; inset: -20% -10%; content: ""; background: radial-gradient(circle at 82% 42%, rgba(228,196,119,.16), transparent 34%); pointer-events: none; }
-.contact-panel > .reveal { position: relative; z-index: 1; }
-.contact-panel__super { position: absolute; right: 12%; top: 50%; width: min(58vw, 680px); opacity: .9; filter: brightness(1.75) saturate(1.28) contrast(1.08) drop-shadow(0 30px 44px rgba(0,0,0,.54)); transform: translate(50%, -50%); pointer-events: none; }
+.contact-panel { position: relative; display: grid; grid-template-columns: 1.15fr .85fr; align-items: end; gap: 80px; min-height: 520px; overflow: visible; isolation: isolate; }
+.contact-panel::before { position: absolute; inset: -20% -10%; z-index: 0; content: ""; background: radial-gradient(circle at 82% 42%, rgba(228,196,119,.16), transparent 34%); pointer-events: none; }
+.contact-panel > .reveal { position: relative; z-index: 2; }
+.contact-panel__super { position: absolute; right: clamp(0px, 3vw, 36px); top: 50%; z-index: 1; width: min(42vw, 520px); opacity: .78; filter: brightness(1.48) saturate(1.18) contrast(1.05) drop-shadow(0 30px 44px rgba(0,0,0,.54)); transform: translateY(-50%); pointer-events: none; }
 .contact-panel h2 { margin-bottom: 21px; font-size: clamp(58px, 7vw, 98px); }
 .contact-panel__lede { max-width: 430px; margin-bottom: 0; color: rgba(245,241,232,.7); font-size: 16px; line-height: 1.8; }
 .contact-actions { display: grid; justify-items: start; gap: 20px; padding-bottom: 7px; }
@@ -341,8 +341,8 @@ h3 { letter-spacing: -.02em; }
   .location-card__map { min-height: 285px; }
   .location-card__super-pin { width: min(82%, 330px); }
   .contact-panel h2 { font-size: clamp(61px, 17vw, 100px); }
-  .contact-panel { overflow: hidden; }
-  .contact-panel__super { right: -50px; top: 18px; width: 310px; opacity: .18; transform: none; }
+  .contact-panel { min-height: 470px; overflow: visible; }
+  .contact-panel__super { right: 0; top: -4px; width: min(72vw, 285px); opacity: .22; transform: none; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 45px 25px; padding-bottom: 45px; }
   .footer-brand { grid-column: 1 / -1; }
   .footer-bottom { display: grid; gap: 12px; }
