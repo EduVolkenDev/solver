@@ -28,6 +28,7 @@ a { color: inherit; text-decoration: none; }
 button, a { -webkit-tap-highlight-color: transparent; }
 button:focus-visible, a:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 4px; }
 img { display: block; max-width: 100%; }
+main { overflow-x: clip; }
 
 .container { width: min(1180px, calc(100% - 64px)); margin: 0 auto; }
 .identity-icon { display: block; width: 100%; height: auto; object-fit: contain; }
@@ -87,6 +88,7 @@ h3 { letter-spacing: -.02em; }
 .trust-item svg { color: var(--gold); }
 
 .section { position: relative; padding: 150px 0; }
+.section--about, .section--profiles, .section--experience, .section--accommodation, .section--booking, .section--location, .section--contact { overflow-x: clip; }
 .section-intro h2 { max-width: 620px; margin-bottom: 25px; font-size: clamp(45px, 5vw, 70px); }
 .section-intro__body { max-width: 545px; color: var(--muted); font-size: 16px; line-height: 1.8; }
 .section-intro--center { display: grid; justify-items: center; text-align: center; }
