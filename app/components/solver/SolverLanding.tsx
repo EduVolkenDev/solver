@@ -43,6 +43,14 @@ const superIcons = {
   wifi: "/assets/solver-super-icons/optimized/solver-icons-super6.webp",
 } as const;
 
+const trustHighlights = [
+  { src: identityIcons.home, text: "Short stays in London" },
+  { src: identityIcons.bed, text: "Comfort-led accommodation" },
+  { src: identityIcons.keys, text: "Simple arrival details" },
+  { src: identityIcons.whatsapp, text: "Fast WhatsApp assistance" },
+  { src: identityIcons.globe, text: "Trusted booking platforms" },
+] as const;
+
 type RevealProps = {
   children: React.ReactNode;
   className?: string;
@@ -189,13 +197,14 @@ export default function SolverLanding() {
 
       <section className="trust-strip" aria-label="Solver Accommodations highlights">
         <div className="container trust-strip__inner">
-          {[
-            [identityIcons.home, "Short stays in London"],
-            [identityIcons.bed, "Comfort-led accommodation"],
-            [identityIcons.keys, "Simple arrival details"],
-            [identityIcons.whatsapp, "Fast WhatsApp assistance"],
-            [identityIcons.globe, "Trusted booking platforms"],
-          ].map(([src, text]) => <div className="trust-item" key={text}><IdentityIcon className="trust-item__icon" src={src} /><span>{text}</span></div>)}
+          <div className="trust-strip__track">
+            <div className="trust-strip__group">
+              {trustHighlights.map(({ src, text }) => <div className="trust-item" key={text}><IdentityIcon className="trust-item__icon" src={src} /><span>{text}</span></div>)}
+            </div>
+            <div className="trust-strip__group" aria-hidden="true">
+              {trustHighlights.map(({ src, text }) => <div className="trust-item" key={`${text}-duplicate`}><IdentityIcon className="trust-item__icon" src={src} /><span>{text}</span></div>)}
+            </div>
+          </div>
         </div>
       </section>
 
