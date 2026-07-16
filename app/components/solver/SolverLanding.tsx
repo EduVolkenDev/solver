@@ -249,11 +249,11 @@ export default function SolverLanding() {
           <Reveal><SectionIntro eyebrow="Who we welcome" title={<>A stay shaped around<br /><em>your reason for travelling.</em></>} body="Different journeys ask for different kinds of comfort. Solver keeps the essentials simple, considered and easy to arrange." /></Reveal>
           <div className="profile-grid">
             {[
-              { number: "01", image: superIcons.suitcase, width: 1062, height: 1400, title: "Business Travellers", copy: "Convenient short stays, reliable communication and a comfortable environment for work trips." },
-              { number: "02", image: superIcons.camera, width: 1400, height: 1025, title: "Short-Stay Visitors", copy: "A practical base for discovering London without committing to a long-term tenancy." },
-              { number: "03", image: superIcons.calendar, width: 1180, height: 1400, title: "Visiting Students", copy: "Flexible accommodation for university visits, interviews, events and short academic stays." },
+              { number: "01", icon: "suitcase", image: superIcons.suitcase, width: 1062, height: 1400, title: "Business Travellers", copy: "Convenient short stays, reliable communication and a comfortable environment for work trips." },
+              { number: "02", icon: "camera", image: superIcons.camera, width: 1400, height: 1025, title: "Short-Stay Visitors", copy: "A practical base for discovering London without committing to a long-term tenancy." },
+              { number: "03", icon: "calendar", image: superIcons.calendar, width: 1180, height: 1400, title: "Visiting Students", copy: "Flexible accommodation for university visits, interviews, events and short academic stays." },
             ].map((profile, index) => (
-              <Reveal className="profile-card" delay={index * 80} key={profile.number}>
+              <Reveal className={`profile-card profile-card--${profile.icon}`} delay={index * 80} key={profile.number}>
                 <div className="profile-card__top"><span className="profile-card__number">{profile.number}</span><img className="profile-card__icon" src={profile.image} alt="" width={profile.width} height={profile.height} loading="lazy" /></div>
                 <h3>{profile.title}</h3>
                 <p>{profile.copy}</p>
