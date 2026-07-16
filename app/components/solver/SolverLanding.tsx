@@ -37,7 +37,7 @@ const superIcons = {
   camera: "/assets/solver-super-icons/optimized/solver-icons-super2.webp",
   calendar: "/assets/solver-super-icons/optimized/solver-icons-super5.webp",
   location: "/assets/solver-super-icons/optimized/solver-icons-super1.webp",
-  shield: "/assets/solver-super-icons/optimized/solver-icons-super4.webp",
+  shield: "/assets/solver-super-icons/solver-icons-super4.png",
   suitcase: "/assets/solver-super-icons/optimized/solver-icons-super7.webp",
   whatsapp: "/assets/solver-super-icons/optimized/solver-icons-super3.webp",
   wifi: "/assets/solver-super-icons/optimized/solver-icons-super6.webp",
@@ -183,9 +183,6 @@ export default function SolverLanding() {
               <div className="hero__status"><span className="status-dot" /> {solverConfig.launch.bookingExperienceLabel}</div>
             </Reveal>
           </div>
-          <Reveal className="hero__signature" delay={180}>
-            <img src={signatureDoorImage} alt="" width="1800" height="1800" loading="eager" />
-          </Reveal>
         </div>
         <a className="hero__scroll" href="#about"><span>Scroll to explore</span><Icon name="chevron" size={18} /></a>
       </section>
