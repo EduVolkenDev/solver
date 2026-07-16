@@ -342,7 +342,7 @@ h3 { letter-spacing: -.02em; }
   .location-card__super-pin { width: min(82%, 330px); }
   .contact-panel h2 { font-size: clamp(61px, 17vw, 100px); }
   .contact-panel { min-height: 470px; overflow: visible; }
-  .contact-panel__super { right: 0; top: -4px; width: min(72vw, 285px); opacity: .22; transform: none; }
+  .contact-panel__super { right: 0; top: 78px; width: min(78vw, 305px); opacity: .36; transform: none; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 45px 25px; padding-bottom: 45px; }
   .footer-brand { grid-column: 1 / -1; }
   .footer-bottom { display: grid; gap: 12px; }
