@@ -82,7 +82,7 @@ h3 { letter-spacing: -.02em; }
 @keyframes scroll-hint { 0%, 100% { transform: translateY(-2px); } 50% { transform: translateY(3px); } }
 
 .trust-strip { border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft); background: var(--bg-soft); }
-.trust-strip__inner { display: flex; align-items: center; justify-content: space-between; gap: 30px; min-height: 150px; }
+.trust-strip__inner { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: center; justify-content: space-between; gap: 30px; min-height: 230px; width: auto; margin: 10px clamp(32px, 7.6vw, 110px); }
 .trust-item { display: inline-flex; align-items: center; gap: 17px; color: rgba(245,241,232,.82); font-size: 13px; font-weight: 800; letter-spacing: .01em; white-space: nowrap; }
 .trust-item__icon { width: 104px; height: 104px; filter: brightness(1.22) drop-shadow(0 18px 30px rgba(0,0,0,.48)); }
 .trust-item svg { color: var(--gold); }
@@ -258,7 +258,7 @@ h3 { letter-spacing: -.02em; }
   .site-nav--open { display: flex; }
   .site-nav > a:not(.button) { padding: 13px 11px; border-bottom: 1px solid var(--border-soft); }
   .site-nav .button { margin-top: 9px; }
-  .trust-strip__inner { overflow-x: auto; justify-content: flex-start; min-height: 140px; padding-top: 10px; padding-bottom: 10px; scrollbar-width: none; }
+  .trust-strip__inner { display: flex; overflow-x: auto; justify-content: flex-start; width: min(1180px, calc(100% - 64px)); min-height: 140px; margin: 0 auto; padding-top: 10px; padding-bottom: 10px; scrollbar-width: none; }
   .trust-strip__inner::-webkit-scrollbar { display: none; }
   .hero__content { width: min(700px, 68%); }
   .super-feature__art { right: -22%; width: min(78%, 470px); }
@@ -289,7 +289,7 @@ h3 { letter-spacing: -.02em; }
   .hero h1 { font-size: clamp(49px, 13vw, 72px); }
   .hero__lede { max-width: 390px; font-size: 15px; }
   .hero__scroll { bottom: 20px; font-size: 8px; }
-  .trust-strip__inner { min-height: 128px; gap: 38px; }
+  .trust-strip__inner { width: min(100% - 38px, 560px); min-height: 128px; gap: 38px; }
   .trust-item { gap: 12px; font-size: 11px; }
   .trust-item__icon { width: 82px; height: 82px; }
   .trust-item svg { flex: 0 0 auto; }
