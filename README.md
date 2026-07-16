@@ -25,6 +25,19 @@ Commercial details are intentionally centralized in
 - privacy policy and terms URLs or pages;
 - confirmed residential/service area wording.
 
+Public deployment values can be supplied through `.env.local`, using
+`.env.example` as the template:
+
+- `NEXT_PUBLIC_SITE_URL`;
+- `NEXT_PUBLIC_WHATSAPP_NUMBER`;
+- `NEXT_PUBLIC_CONTACT_EMAIL`;
+- `NEXT_PUBLIC_AIRBNB_URL`;
+- `NEXT_PUBLIC_BOOKING_URL`.
+
+These variables contain only public contact and listing information. The
+language and feature flags are prepared for future growth but remain disabled
+until the corresponding product flows are ready.
+
 Until those values are supplied, enquiry buttons safely return visitors to the
 contact section and platform cards remain clearly marked as unconfigured.
 

@@ -343,7 +343,7 @@ export default function SolverLanding() {
 
       <footer className="site-footer">
         <div className="container footer-grid"><div className="footer-brand"><BrandLogo /><p>{solverConfig.brand.slogan}</p></div><div className="footer-links"><p className="eyebrow">Explore</p>{solverConfig.navigation.map((item) => <a href={item.href} key={item.href}>{item.label}</a>)}</div><div className="footer-links"><p className="eyebrow">Connect</p><WhatsAppLink className="footer-link" message={defaultWhatsAppMessage}>WhatsApp</WhatsAppLink><span>London, United Kingdom</span><span>{solverConfig.contact.email || "Email to be configured"}</span></div></div>
-        <div className="container footer-bottom"><span>© {new Date().getFullYear()} {solverConfig.brand.legalName}</span><div><a href="#contact">Privacy Policy</a><a href="#contact">Terms</a><span>Designed and developed by VOLYNX.</span></div></div>
+        <div className="container footer-bottom"><span>© {new Date().getFullYear()} {solverConfig.brand.legalName}</span><nav className="footer-legal-links" aria-label="Legal information"><a className="footer-legal-link" href="/privacy">Privacy Policy</a><a className="footer-legal-link" href="/terms">Terms of Service</a><span>Designed and developed by VOLYNX.</span></nav></div>
       </footer>
 
     </main>
