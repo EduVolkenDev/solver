@@ -75,9 +75,9 @@ function BrandLogo({ compact = false }: { compact?: boolean }) {
   return (
     <a className={`brand-lockup ${compact ? "brand-lockup--compact" : ""}`} href="#home" aria-label="Solver Accommodations home">
       <span className="brand-lockup__mark">
-        <img src={brandMarkImage} alt="" width="607" height="823" loading={compact ? "eager" : "lazy"} />
+        <img src={brandMarkImage} alt="" width="1400" height="1400" loading={compact ? "eager" : "lazy"} />
       </span>
-      <img className="brand-lockup__wordmark" src={brandWordmarkImage} alt="" width="1187" height="400" loading={compact ? "eager" : "lazy"} />
+      <img className="brand-lockup__wordmark" src={brandWordmarkImage} alt="" width="1280" height="370" loading={compact ? "eager" : "lazy"} />
     </a>
   );
 }
