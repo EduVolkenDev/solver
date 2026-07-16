@@ -37,6 +37,8 @@ test("server-renders the Solver landing page", async () => {
   assert.match(html, /Solver Accommodation K&amp;D Limited/);
   assert.match(html, /solver-mark\.webp/);
   assert.match(html, /solver-wordmark\.webp/);
+  assert.match(html, /solver-super-icons\/optimized\/solver-icons-super/);
+  assert.match(html, /solver-icons\/solver-icons-select/);
   assert.doesNotMatch(html, /brand-lockup__words/);
   assert.match(html, /application\/ld\+json/);
   assert.doesNotMatch(html, /hero-seal|floating-contact/);
@@ -49,6 +51,8 @@ test("keeps the temporary starter preview removed", async () => {
     "public/assets/solver-profile-business.webp",
     "public/assets/solver-profile-visitor.webp",
     "public/assets/solver-profile-student.webp",
+    "public/assets/solver-icons/solver-icons-select17.webp",
+    "public/assets/solver-super-icons/optimized/solver-icons-super7.webp",
   ].map((asset) => access(new URL(asset, projectRoot))));
   const page = await readFile(new URL("app/page.tsx", projectRoot), "utf8");
   assert.match(page, /SolverLanding/);

@@ -11,11 +11,36 @@ import {
   getConfiguredContactHref,
   solverConfig,
 } from "../../config/solver";
-import { Icon, type IconName } from "./Icon";
+import { Icon } from "./Icon";
 
 const heroImage = "/assets/solver-hero.webp";
 const brandMarkImage = "/assets/solver-mark.webp";
 const brandWordmarkImage = "/assets/solver-wordmark.webp";
+
+const identityIcons = {
+  building: "/assets/solver-icons/solver-icons-select1.webp",
+  calendar: "/assets/solver-icons/solver-icons-select10.webp",
+  bed: "/assets/solver-icons/solver-icons-select2.webp",
+  globe: "/assets/solver-icons/solver-icons-select14.webp",
+  home: "/assets/solver-icons/solver-icons-select7.webp",
+  keys: "/assets/solver-icons/solver-icons-select9.webp",
+  mail: "/assets/solver-icons/solver-icons-select18.webp",
+  plane: "/assets/solver-icons/solver-icons-select22.webp",
+  shield: "/assets/solver-icons/solver-icons-select16.webp",
+  train: "/assets/solver-icons/solver-icons-select23.webp",
+  whatsapp: "/assets/solver-icons/solver-icons-select17.webp",
+  wifi: "/assets/solver-icons/solver-icons-select15.webp",
+} as const;
+
+const superIcons = {
+  camera: "/assets/solver-super-icons/optimized/solver-icons-super2.webp",
+  calendar: "/assets/solver-super-icons/optimized/solver-icons-super5.webp",
+  location: "/assets/solver-super-icons/optimized/solver-icons-super1.webp",
+  shield: "/assets/solver-super-icons/optimized/solver-icons-super4.webp",
+  suitcase: "/assets/solver-super-icons/optimized/solver-icons-super7.webp",
+  whatsapp: "/assets/solver-super-icons/optimized/solver-icons-super3.webp",
+  wifi: "/assets/solver-super-icons/optimized/solver-icons-super6.webp",
+} as const;
 
 type RevealProps = {
   children: React.ReactNode;
@@ -103,8 +128,8 @@ function SectionIntro({ eyebrow, title, body, align = "left" }: { eyebrow: strin
   );
 }
 
-function LineIcon({ name }: { name: IconName }) {
-  return <span className="line-icon"><Icon name={name} size={23} /></span>;
+function IdentityIcon({ src, className = "", width = 1530, height = 1326 }: { src: string; className?: string; width?: number; height?: number }) {
+  return <img className={`identity-icon ${className}`} src={src} alt="" width={width} height={height} loading="lazy" />;
 }
 
 export default function SolverLanding() {
@@ -164,12 +189,12 @@ export default function SolverLanding() {
       <section className="trust-strip" aria-label="Solver Accommodations highlights">
         <div className="container trust-strip__inner">
           {[
-            ["door", "Short stays in London"],
-            ["briefcase", "Business traveller friendly"],
-            ["shield", "Secure communication"],
-            ["message", "Fast WhatsApp assistance"],
-            ["globe", "Trusted booking platforms"],
-          ].map(([icon, text]) => <div className="trust-item" key={text}><Icon name={icon as IconName} size={17} /><span>{text}</span></div>)}
+            [identityIcons.home, "Short stays in London"],
+            [identityIcons.bed, "Comfort-led accommodation"],
+            [identityIcons.keys, "Simple arrival details"],
+            [identityIcons.whatsapp, "Fast WhatsApp assistance"],
+            [identityIcons.globe, "Trusted booking platforms"],
+          ].map(([src, text]) => <div className="trust-item" key={text}><IdentityIcon className="trust-item__icon" src={src} /><span>{text}</span></div>)}
         </div>
       </section>
 
@@ -180,6 +205,7 @@ export default function SolverLanding() {
               <img src={heroImage} alt="A calm, warm bedroom interior prepared for a short stay" width="1800" height="1013" loading="lazy" />
               <div className="image-caption"><span className="image-caption__line" /> <span>Stay with intention</span></div>
             </div>
+            <IdentityIcon className="about-visual__identity" src={superIcons.shield} width={1066} height={1400} />
             <div className="about-visual__stamp"><Icon name="spark" size={21} /><span>London<br />short stays</span></div>
           </Reveal>
           <Reveal className="about-copy" delay={100}>
@@ -195,12 +221,12 @@ export default function SolverLanding() {
           <Reveal><SectionIntro eyebrow="Who we welcome" title={<>A stay shaped around<br /><em>your reason for travelling.</em></>} body="Different journeys ask for different kinds of comfort. Solver keeps the essentials simple, considered and easy to arrange." /></Reveal>
           <div className="profile-grid">
             {[
-              { number: "01", image: "/assets/solver-profile-business.webp", title: "Business Travellers", copy: "Convenient short stays, reliable communication and a comfortable environment for work trips." },
-              { number: "02", image: "/assets/solver-profile-visitor.webp", title: "Short-Stay Visitors", copy: "A practical base for discovering London without committing to a long-term tenancy." },
-              { number: "03", image: "/assets/solver-profile-student.webp", title: "Visiting Students", copy: "Flexible accommodation for university visits, interviews, events and short academic stays." },
+              { number: "01", image: superIcons.suitcase, width: 1062, height: 1400, title: "Business Travellers", copy: "Convenient short stays, reliable communication and a comfortable environment for work trips." },
+              { number: "02", image: superIcons.camera, width: 1400, height: 1025, title: "Short-Stay Visitors", copy: "A practical base for discovering London without committing to a long-term tenancy." },
+              { number: "03", image: superIcons.calendar, width: 1180, height: 1400, title: "Visiting Students", copy: "Flexible accommodation for university visits, interviews, events and short academic stays." },
             ].map((profile, index) => (
               <Reveal className="profile-card" delay={index * 80} key={profile.number}>
-                <div className="profile-card__top"><span className="profile-card__number">{profile.number}</span><img className="profile-card__icon" src={profile.image} alt="" width="1254" height="1254" loading="lazy" /></div>
+                <div className="profile-card__top"><span className="profile-card__number">{profile.number}</span><img className="profile-card__icon" src={profile.image} alt="" width={profile.width} height={profile.height} loading="lazy" /></div>
                 <h3>{profile.title}</h3>
                 <p>{profile.copy}</p>
                 <span className="profile-card__rule" />
@@ -213,19 +239,27 @@ export default function SolverLanding() {
       <section className="section section--experience" aria-labelledby="experience-title">
         <div className="container experience-grid">
           <Reveal className="experience-copy"><SectionIntro eyebrow="The stay experience" title={<>The essentials,<br /><em>thoughtfully handled.</em></>} body="A short stay should feel clear from the first enquiry. These are the principles behind the Solver experience." /><WhatsAppLink className="button button--outline" message={"Hello, I would like to learn more about staying with Solver Accommodation."}>Talk to our team <Icon name="arrow" size={17} /></WhatsAppLink></Reveal>
-          <div className="benefit-list">
+          <div className="experience-system">
+            <Reveal className="super-feature super-feature--wifi" delay={80}>
+              <img className="super-feature__art" src={superIcons.wifi} alt="" width="1400" height="1347" loading="lazy" />
+              <div className="super-feature__copy"><span>Connected support</span><p>Direct, clear communication before and during the stay.</p></div>
+            </Reveal>
+            <div className="benefit-list">
             {[
-              ["calendar", "Short and flexible stays", "Stay for the length your London plans require."],
-              ["pin", "London location", "A considered base for work, study and exploring the city."],
-              ["message", "Direct support", "Get clear answers through a direct enquiry channel."],
-              ["shield", "Trusted platform bookings", "Current stays are managed through established booking platforms."],
-            ].map(([icon, title, copy], index) => <Reveal className="benefit-item" delay={index * 60} key={title}><LineIcon name={icon as IconName} /><div><h3>{title}</h3><p>{copy}</p></div></Reveal>)}
+              [identityIcons.calendar, "Short and flexible stays", "Stay for the length your London plans require."],
+              [identityIcons.building, "London location", "A considered base for work, study and exploring the city."],
+              [identityIcons.whatsapp, "Direct support", "Get clear answers through a direct enquiry channel."],
+              [identityIcons.shield, "Trusted platform bookings", "Current stays are managed through established booking platforms."],
+            ].map(([src, title, copy], index) => <Reveal className="benefit-item" delay={index * 60} key={title}><IdentityIcon className="benefit-item__icon" src={src} /><div><h3>{title}</h3><p>{copy}</p></div></Reveal>)}
+            </div>
           </div>
         </div>
       </section>
 
       <section className="section section--accommodation" aria-labelledby="accommodation-title">
         <div className="container accommodation-panel">
+          <img className="accommodation-panel__super accommodation-panel__super--suitcase" src={superIcons.suitcase} alt="" width="1062" height="1400" loading="lazy" />
+          <IdentityIcon className="accommodation-panel__mini accommodation-panel__mini--bed" src={identityIcons.bed} />
           <div className="accommodation-panel__ornament"><span /> <Icon name="door" size={22} /> <span /></div>
           <Reveal><SectionIntro align="center" eyebrow="Accommodation preview" title={<>Room details are<br /><em>being prepared.</em></>} body="Our accommodation experience is being prepared with the same care we bring to every stay. Direct booking options will be available soon." /></Reveal>
           <Reveal className="accommodation-panel__meta" delay={100}><span><Icon name="spark" size={16} /> Designed for short stays</span><span><Icon name="message" size={16} /> Ask about current availability</span></Reveal>
@@ -237,6 +271,7 @@ export default function SolverLanding() {
         <div className="container booking-grid">
           <Reveal className="booking-copy"><p className="eyebrow eyebrow--gold">The next chapter</p><h2 id="booking-title">A better booking experience<br /><em>is on the way.</em></h2><p>We are preparing a dedicated booking experience designed to make discovering availability and arranging your stay even simpler.</p><WhatsAppLink message={"Hello, I found Solver Accommodation through the website and I would like to check availability for a short stay in London."}>Check availability on WhatsApp <Icon name="arrow" size={17} /></WhatsAppLink></Reveal>
           <Reveal className="booking-steps" delay={120}>
+            <img className="booking-steps__super" src={superIcons.calendar} alt="" width="1180" height="1400" loading="lazy" />
             {[
               ["01", "Browse", "Discover the right stay for your London plans."],
               ["02", "Enquire", "Ask a simple question through your preferred channel."],
@@ -251,22 +286,23 @@ export default function SolverLanding() {
         <div className="container">
           <Reveal><SectionIntro align="center" eyebrow="How to enquire" title={<>Choose the channel<br /><em>that suits you.</em></>} body="WhatsApp is our direct enquiry channel. Current listings may also be available through trusted booking platforms." /></Reveal>
           <div className="platform-grid">
-            <Reveal className="platform-card platform-card--primary"><div className="platform-card__icon"><Icon name="message" size={25} /></div><div><p className="eyebrow eyebrow--gold">Preferred channel</p><h3>WhatsApp</h3><p>Message our team directly about current availability and short stays in London.</p><WhatsAppLink className="text-link" message={defaultWhatsAppMessage}>Start an enquiry <Icon name="arrow" size={16} /></WhatsAppLink></div></Reveal>
-            <Reveal className="platform-card" delay={80}><div className="platform-card__icon"><Icon name="door" size={25} /></div><div><p className="eyebrow">Trusted platform</p><h3>Airbnb</h3><p>Our Airbnb link will be added here once the official listing URL is confirmed.</p><span className="platform-card__pending">Link to be configured</span></div></Reveal>
-            <Reveal className="platform-card" delay={160}><div className="platform-card__icon"><Icon name="calendar" size={25} /></div><div><p className="eyebrow">Trusted platform</p><h3>Booking.com</h3><p>Our Booking.com link will be added here once the official listing URL is confirmed.</p><span className="platform-card__pending">Link to be configured</span></div></Reveal>
+            <Reveal className="platform-card platform-card--primary"><div className="platform-card__icon"><IdentityIcon src={identityIcons.whatsapp} /></div><div><p className="eyebrow eyebrow--gold">Preferred channel</p><h3>WhatsApp</h3><p>Message our team directly about current availability and short stays in London.</p><WhatsAppLink className="text-link" message={defaultWhatsAppMessage}>Start an enquiry <Icon name="arrow" size={16} /></WhatsAppLink></div></Reveal>
+            <Reveal className="platform-card" delay={80}><div className="platform-card__icon"><IdentityIcon src={identityIcons.home} /></div><div><p className="eyebrow">Trusted platform</p><h3>Airbnb</h3><p>Our Airbnb link will be added here once the official listing URL is confirmed.</p><span className="platform-card__pending">Link to be configured</span></div></Reveal>
+            <Reveal className="platform-card" delay={160}><div className="platform-card__icon"><IdentityIcon src={identityIcons.calendar} /></div><div><p className="eyebrow">Trusted platform</p><h3>Booking.com</h3><p>Our Booking.com link will be added here once the official listing URL is confirmed.</p><span className="platform-card__pending">Link to be configured</span></div></Reveal>
           </div>
         </div>
       </section>
 
       <section className="section section--location" id="location" aria-labelledby="location-title">
         <div className="container location-grid">
-          <Reveal className="location-card"><div className="location-card__map"><div className="map-grid" /><span className="map-route map-route--one" /><span className="map-route map-route--two" /><span className="map-pin"><Icon name="pin" size={20} /></span><span className="map-label">LONDON</span></div><div className="location-card__footer"><span><Icon name="train" size={18} /> London, UK</span><span>Area details on request</span></div></Reveal>
+          <Reveal className="location-card"><div className="location-card__map"><div className="map-grid" /><span className="map-route map-route--one" /><span className="map-route map-route--two" /><img className="location-card__super-pin" src={superIcons.location} alt="" width="1354" height="1400" loading="lazy" /><span className="map-label">LONDON</span></div><div className="location-card__footer"><span><IdentityIcon className="location-card__footer-icon" src={identityIcons.train} /> London, UK</span><span>Area details on request</span></div></Reveal>
           <Reveal className="location-copy" delay={100}><SectionIntro eyebrow="Location" title={<>Your base for<br /><em>London.</em></>} body="Solver Accommodation operates in London, offering a practical and comfortable base for short stays across the city." /><div className="location-note"><Icon name="shield" size={19} /><p>We keep exact residential addresses private until a booking is confirmed through the appropriate channel.</p></div><a className="button button--outline" href="#contact">Contact the team <Icon name="arrow" size={17} /></a></Reveal>
         </div>
       </section>
 
       <section className="section section--contact" id="contact" aria-labelledby="contact-title">
         <div className="container contact-panel">
+          <img className="contact-panel__super" src={superIcons.whatsapp} alt="" width="1267" height="1400" loading="lazy" />
           <Reveal><p className="eyebrow eyebrow--gold">Contact Solver</p><h2 id="contact-title">Let&apos;s solve<br /><em>your stay.</em></h2><p className="contact-panel__lede">Tell us a little about your plans and we&apos;ll help you understand the next step.</p></Reveal>
           <Reveal className="contact-actions" delay={100}><WhatsAppLink className="button button--gold" message={defaultWhatsAppMessage}><Icon name="message" size={18} /> Enquire on WhatsApp <Icon name="arrow" size={17} /></WhatsAppLink><div className="contact-detail"><Icon name="mail" size={18} /><span>{solverConfig.contact.email || "Email address to be configured"}</span></div><div className="contact-detail"><Icon name="pin" size={18} /><span>{solverConfig.contact.serviceArea}</span></div></Reveal>
         </div>
