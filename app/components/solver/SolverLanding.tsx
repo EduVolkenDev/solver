@@ -16,6 +16,7 @@ import { Icon } from "./Icon";
 const heroImage = "/assets/solver-hero.webp";
 const brandMarkImage = "/assets/solver-mark.webp";
 const brandWordmarkImage = "/assets/solver-wordmark.webp";
+const signatureDoorImage = "/assets/solver-signature-door.webp";
 
 const identityIcons = {
   building: "/assets/solver-icons/solver-icons-select1.webp",
@@ -182,6 +183,9 @@ export default function SolverLanding() {
               <div className="hero__status"><span className="status-dot" /> {solverConfig.launch.bookingExperienceLabel}</div>
             </Reveal>
           </div>
+          <Reveal className="hero__signature" delay={180}>
+            <img src={signatureDoorImage} alt="" width="1800" height="1800" loading="eager" />
+          </Reveal>
         </div>
         <a className="hero__scroll" href="#about"><span>Scroll to explore</span><Icon name="chevron" size={18} /></a>
       </section>
@@ -195,6 +199,30 @@ export default function SolverLanding() {
             [identityIcons.whatsapp, "Fast WhatsApp assistance"],
             [identityIcons.globe, "Trusted booking platforms"],
           ].map(([src, text]) => <div className="trust-item" key={text}><IdentityIcon className="trust-item__icon" src={src} /><span>{text}</span></div>)}
+        </div>
+      </section>
+
+      <section className="section section--signature" aria-labelledby="signature-title">
+        <div className="container signature-grid">
+          <Reveal className="signature-art">
+            <img className="signature-art__door" src={signatureDoorImage} alt="" width="1800" height="1800" loading="lazy" />
+            <span className="signature-art__halo" />
+          </Reveal>
+          <Reveal className="signature-copy" delay={100}>
+            <SectionIntro eyebrow="Solver signature" title={<>A welcome<br />that feels<br /><em>already<span className="signature-mobile-break"><br /></span><span className="signature-desktop-space"> </span>considered.</em></>} body="This piece carries the Solver identity: a calm entrance, warm details and the sense that the stay has been prepared before you arrive." />
+            <div className="signature-points" aria-label="Solver identity principles">
+              {[
+                [identityIcons.keys, "Clear arrival"],
+                [identityIcons.bed, "Comfort first"],
+                [identityIcons.shield, "Trusted handling"],
+              ].map(([src, label]) => (
+                <div className="signature-point" key={label}>
+                  <IdentityIcon className="signature-point__icon" src={src} />
+                  <span>{label}</span>
+                </div>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
