@@ -41,10 +41,10 @@ h3 { letter-spacing: -.02em; }
 .site-header { position: fixed; inset: 0 0 auto; z-index: 20; border-bottom: 1px solid transparent; transition: background .35s ease, border-color .35s ease, backdrop-filter .35s ease; }
 .site-header--scrolled { background: rgba(7, 19, 15, .88); border-color: var(--border-soft); backdrop-filter: blur(18px); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 168px; }
-.brand-lockup { display: inline-flex; align-items: center; gap: 18px; min-width: 520px; }
+.brand-lockup { display: inline-flex; align-items: center; gap: 26px; min-width: 550px; }
 .brand-lockup__mark { display: inline-grid; flex: none; place-items: center; width: 150px; height: 168px; overflow: visible; }
 .brand-lockup__mark img { width: 190px; max-width: none; height: auto; object-fit: contain; filter: brightness(1.42) saturate(1.14) drop-shadow(0 14px 24px rgba(0,0,0,.52)); }
-.brand-lockup__wordmark { display: block; width: 340px; max-width: none; height: auto; filter: brightness(1.42) saturate(1.14) drop-shadow(0 11px 18px rgba(0,0,0,.42)); }
+.brand-lockup__wordmark { display: block; align-self: center; width: 340px; max-width: none; height: auto; margin-top: 4px; filter: brightness(1.42) saturate(1.14) drop-shadow(0 11px 18px rgba(0,0,0,.42)); }
 .site-nav { display: flex; align-items: center; gap: clamp(18px, 2.2vw, 32px); margin-left: auto; }
 .site-nav > a:not(.button) { color: rgba(245,241,232,.88); font-size: 14px; font-weight: 700; letter-spacing: .03em; text-shadow: 0 2px 14px rgba(0,0,0,.72); transition: color .25s ease; }
 .site-nav > a:not(.button):hover { color: var(--cream); }
@@ -250,7 +250,7 @@ h3 { letter-spacing: -.02em; }
 @media (max-width: 1120px) {
   html { scroll-padding-top: 162px; }
   .header-inner { min-height: 144px; }
-  .brand-lockup { min-width: 440px; }
+  .brand-lockup { gap: 22px; min-width: 462px; }
   .brand-lockup__mark { width: 126px; height: 144px; }
   .brand-lockup__mark img { width: 165px; }
   .brand-lockup__wordmark { width: 290px; }
@@ -277,15 +277,15 @@ h3 { letter-spacing: -.02em; }
   .platform-card:last-child { grid-column: 1 / -1; }
 }
 
-@media (max-width: 760px) {
+@media (width <= 760px) {
   html { scroll-padding-top: 112px; }
   .container { width: min(100% - 38px, 560px); }
   .site-header .container { width: calc(100% - 38px); }
   .header-inner { min-height: 94px; }
-  .brand-lockup { flex: 1 1 auto; gap: 10px; min-width: 0; max-width: calc(100% - 64px); }
+  .brand-lockup { flex: 1 1 auto; gap: 14px; min-width: 0; max-width: calc(100% - 64px); }
   .brand-lockup__mark { width: 82px; height: 94px; }
   .brand-lockup__mark img { width: 112px; }
-  .brand-lockup__wordmark { width: min(208px, calc(100vw - 190px)); }
+  .brand-lockup__wordmark { width: min(200px, calc(100vw - 198px)); margin-top: 3px; }
   .site-nav { right: 19px; left: 19px; }
   .hero { min-height: 740px; height: 94svh; }
   .hero__image { object-position: 63% center; }
@@ -321,9 +321,9 @@ h3 { letter-spacing: -.02em; }
   .signature-point { min-height: 88px; padding: 14px; }
   .signature-point__icon { width: 52px; height: 52px; }
   .about-grid, .experience-grid, .booking-grid, .location-grid, .contact-panel { grid-template-columns: 1fr; gap: 56px; }
-  .about-visual { width: 100%; max-width: 520px; margin: 0 auto 44px; padding-top: 84px; padding-bottom: 0; }
+  .about-visual { width: 100%; max-width: 520px; margin: 0 auto 44px; padding-top: 20px; padding-bottom: 0; }
   .about-visual__frame { min-height: 430px; aspect-ratio: 4 / 5; }
-  .about-visual__identity { top: 0; right: 50%; bottom: auto; width: min(82vw, 330px); opacity: .96; transform: translateX(50%); }
+  .about-visual__identity { position: relative; top: 20px; right: 40%; width: min(82vw, 330px); opacity: .70; transform: translateX(50%); }
   .about-copy { padding-left: 0; }
   .about-mobile-break { display: inline; }
   .about-copy .section-intro h2 { font-size: clamp(39px, 10.5vw, 54px); }
@@ -364,13 +364,13 @@ h3 { letter-spacing: -.02em; }
   .footer-bottom div { flex-wrap: wrap; gap: 12px; }
 }
 
-@media (max-width: 380px) {
+@media (width <= 380px) {
   .container, .site-header .container { width: calc(100% - 30px); }
   .header-inner { min-height: 88px; }
-  .brand-lockup { gap: 8px; }
+  .brand-lockup { gap: 12px; }
   .brand-lockup__mark { width: 72px; height: 88px; }
   .brand-lockup__mark img { width: 100px; }
-  .brand-lockup__wordmark { width: min(184px, calc(100vw - 176px)); }
+  .brand-lockup__wordmark { width: min(176px, calc(100vw - 180px)); margin-top: 3px; }
   .hero__inner { padding-top: 155px; }
   .hero h1 { font-size: 46px; }
   .hero__actions { align-items: stretch; flex-direction: column; }
@@ -384,7 +384,7 @@ h3 { letter-spacing: -.02em; }
   .about-grid, .experience-grid, .booking-grid, .location-grid, .contact-panel { grid-template-columns: 1fr; gap: 45px; }
   .about-visual { margin-bottom: 42px; padding-top: 78px; }
   .about-visual__frame { min-height: 390px; }
-  .about-visual__identity { top: 0; bottom: auto; width: min(86vw, 305px); }
+  .about-visual__identity { top: 50px; width: min(86vw, 305px); }
   .trust-strip__track, .trust-strip__group { gap: 24px; }
   .trust-item { min-width: 210px; }
   .trust-item__icon { width: 78px; height: 78px; }
