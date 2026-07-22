@@ -51,8 +51,7 @@ test("server-renders the Solver landing page", async () => {
   assert.match(html, /Management tailored to your property/);
   assert.match(html, /Owner FAQs/);
   assert.match(html, /Solver Accommodations/);
-  assert.match(html, /solver-brand-mark-official\.webp/);
-  assert.match(html, /solver-brand-wordmark-official\.webp/);
+  assert.match(html, /solver-brand-complete\.webp/);
   assert.doesNotMatch(html, /solver-mark\.webp/);
   assert.match(html, /solver-signature-door\.webp/);
   assert.match(html, /location-card__map-embed/);
