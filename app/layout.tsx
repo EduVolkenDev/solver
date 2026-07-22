@@ -15,7 +15,16 @@ export const metadata: Metadata = {
   publisher: solverConfig.metadata.author,
   applicationName: solverConfig.brand.displayName,
   robots: { index: true, follow: true },
-  icons: { icon: "/assets/solver-logo.webp" },
+  manifest: "/assets/solver-favicon/site.webmanifest",
+  icons: {
+    icon: [
+      { url: "/assets/solver-favicon/favicon.ico", sizes: "48x48" },
+      { url: "/assets/solver-favicon/favicon.svg", type: "image/svg+xml" },
+      { url: "/assets/solver-favicon/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+    ],
+    apple: [{ url: "/assets/solver-favicon/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: ["/assets/solver-favicon/favicon.ico"],
+  },
   verification: solverConfig.google.siteVerification
     ? { google: solverConfig.google.siteVerification }
     : undefined,

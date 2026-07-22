@@ -1,0 +1,21 @@
+{
+  "name": "Solver Accommodations",
+  "short_name": "Solver",
+  "icons": [
+    {
+      "src": "/assets/solver-favicon/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/solver-favicon/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#102218",
+  "background_color": "#06150f",
+  "display": "standalone"
+}
