@@ -14,7 +14,7 @@ import {
 import { Icon } from "./Icon";
 
 const heroImage = "/assets/solver-hero.webp";
-const brandCompleteImage = "/assets/solver-brand-complete.webp";
+const brandWordmarkImage = "/assets/new-solver-wordmark-complete.webp";
 const signatureDoorImage = "/assets/solver-signature-door.webp";
 
 const identityIcons = {
@@ -128,7 +128,7 @@ function useScrolledHeader() {
 function BrandLogo({ compact = false, placement = "header" }: { compact?: boolean; placement?: "header" | "footer" }) {
   return (
     <a className={`brand-lockup brand-lockup--${placement} ${compact ? "brand-lockup--compact" : ""}`} href="#home" aria-label="Solver Accommodations home">
-      <img className="brand-lockup__complete" src={brandCompleteImage} alt="Solver Accommodations — Your stay, solved." width="3096" height="1376" loading={compact || placement === "footer" ? "eager" : "lazy"} />
+      <img className="brand-lockup__complete" src={brandWordmarkImage} alt="Solver Accommodations — Your stay, solved." width="3096" height="1376" loading={compact || placement === "footer" ? "eager" : "lazy"} />
     </a>
   );
 }
