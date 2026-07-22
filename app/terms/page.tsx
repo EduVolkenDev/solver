@@ -5,14 +5,14 @@ import { solverConfig } from "../config/solver";
 const lastUpdated = "July 2026";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Solver Accommodation",
-  description: "Terms of Service for Solver Accommodation K&D Limited, provider of short-term accommodation in London.",
+  title: "Terms of Service | Solver Accommodations",
+  description: "Terms of Service for Solver Accommodations, provider of short-term accommodation in London.",
   alternates: { canonical: "/terms" },
 };
 
 export default function TermsPage() {
   return (
-    <LegalPage title="Terms of Service" lastUpdated={lastUpdated} icon="/assets/solver-icons/solver-icons-select12.webp">
+    <LegalPage title="Terms of Service" lastUpdated={lastUpdated} icon="/assets/solver-icons-select12.webp">
       <p>
         These Terms of Service (&quot;Terms&quot;) govern your use of the website solveraccommodations.com (the &quot;Site&quot;) and any enquiry, communication or booking-related interaction you have with {solverConfig.brand.legalName} (&quot;Solver&quot;, &quot;we&quot;, &quot;us&quot; or &quot;our&quot;), a company registered in England and Wales under company number [COMPANY REGISTRATION NUMBER], with its registered office at [REGISTERED OFFICE ADDRESS].
       </p>

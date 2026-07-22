@@ -1,6 +1,6 @@
 # Solver Accommodations
 
-Phase one of the Solver Accommodation K&D Limited website: a responsive,
+Phase one of the Solver Accommodations website: a responsive,
 single-page hospitality presence for short stays in London.
 
 ## Run locally
@@ -33,6 +33,9 @@ Public deployment values can be supplied through `.env.local`, using
 - `NEXT_PUBLIC_CONTACT_EMAIL`;
 - `NEXT_PUBLIC_AIRBNB_URL`;
 - `NEXT_PUBLIC_BOOKING_URL`.
+- `NEXT_PUBLIC_GOOGLE_ANALYTICS_ID`;
+- `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`;
+- `NEXT_PUBLIC_GOOGLE_MAPS_QUERY`.
 
 These variables contain only public contact and listing information. The
 language and feature flags are prepared for future growth but remain disabled
@@ -52,4 +55,6 @@ node --test tests/rendered-html.test.mjs
 
 The hero and logo assets live in `public/assets/` and are served as optimized
 WebP files. The page includes initial metadata, JSON-LD, `robots.txt`, and
-`sitemap.xml`.
+`sitemap.xml`. Google Maps uses London as the safe default query until the
+confirmed service area is supplied. Analytics and Search Console activate only
+when their public IDs are configured.

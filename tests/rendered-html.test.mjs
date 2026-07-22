@@ -31,25 +31,46 @@ test("server-renders the Solver landing page", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>Solver Accommodation \| Short-Term Stays in London<\/title>/i);
+  assert.match(html, /<title>Solver Accommodations \| Short-Term Stays in London<\/title>/i);
   assert.match(html, /rel="canonical" href="https:\/\/solveraccommodations\.com\//i);
-  assert.match(html, /Comfortable stays/);
-  assert.match(html, /Thoughtfully solved/);
-  assert.match(html, /Solver Accommodation K&amp;D Limited/);
-  assert.match(html, /solver-mark\.webp/);
-  assert.match(html, /solver-wordmark\.webp/);
+  assert.match(html, /Comfortable London stays/);
+  assert.match(html, /Thoughtfully managed/);
+  assert.match(html, /View our accommodation/);
+  assert.match(html, /Check availability/);
+  assert.match(html, /data-analytics-event="view_accommodation"/);
+  assert.match(html, /data-analytics-event="check_availability"/);
+  assert.match(html, /data-analytics-event="whatsapp_enquiry"/);
+  assert.match(html, /data-analytics-event="request_valuation"/);
+  assert.match(html, /Find your.*stay/);
+  assert.match(html, /Booking your stay/);
+  assert.match(html, /Guest FAQs/);
+  assert.match(html, /Own a property.*in London/);
+  assert.match(html, /Let Solver handle the day-to-day work/);
+  assert.match(html, /Professional property management/);
+  assert.match(html, /From property to professionally managed stay/);
+  assert.match(html, /Management tailored to your property/);
+  assert.match(html, /Owner FAQs/);
+  assert.match(html, /Solver Accommodations/);
+  assert.match(html, /solver-brand-mark-official\.webp/);
+  assert.match(html, /solver-brand-wordmark-official\.webp/);
+  assert.doesNotMatch(html, /solver-mark\.webp/);
   assert.match(html, /solver-signature-door\.webp/);
-  assert.match(html, /solver-london-location\.webp/);
-  assert.match(html, /solver-super-icons\/optimized\/solver-icons-super/);
-  assert.match(html, /solver-icons\/solver-icons-select/);
+  assert.match(html, /location-card__map-embed/);
+  assert.match(html, /https:\/\/www\.google\.com\/maps\?q=London%2C%20United%20Kingdom&amp;output=embed/);
+  assert.match(html, /Open in Google Maps/);
+  assert.match(html, /solver-icons-super/);
+  assert.match(html, /solver-icons-select/);
   assert.match(html, /solver-icons-select11\.webp/);
   assert.match(html, /solver-icons-select20\.webp/);
   assert.match(html, /solver-icons-select26\.webp/);
   assert.match(html, /solver-icons-select5\.webp/);
   assert.doesNotMatch(html, /brand-lockup__words/);
   assert.match(html, /application\/ld\+json/);
-  for (const headingId of ["signature-title", "about-title", "profiles-title", "experience-title", "accommodation-title", "platforms-title", "location-title"]) {
+  for (const headingId of ["finder-title", "stays-title", "why-stay-title", "booking-title", "faqs-title", "management-title", "location-title", "contact-title", "about-title", "platforms-title", "dual-cta-title"]) {
     assert.match(html, new RegExp(`id="${headingId}"`));
+  }
+  for (const sectionId of ["availability", "stays", "management", "areas-covered", "contact", "about", "owner-faqs", "how-it-works", "fees-consultation"]) {
+    assert.match(html, new RegExp(`id="${sectionId}"`));
   }
   assert.doesNotMatch(html, /hero-seal|floating-contact/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape|react-loading-skeleton/i);
@@ -86,8 +107,8 @@ test("keeps the temporary starter preview removed", async () => {
     "public/assets/solver-profile-business.webp",
     "public/assets/solver-profile-visitor.webp",
     "public/assets/solver-profile-student.webp",
-    "public/assets/solver-icons/solver-icons-select17.webp",
-    "public/assets/solver-super-icons/optimized/solver-icons-super7.webp",
+    "public/assets/solver-icons-select17.webp",
+    "public/assets/solver-icons-super7.webp",
     "public/assets/solver-signature-door.webp",
   ].map((asset) => access(new URL(asset, projectRoot))));
   const page = await readFile(new URL("app/page.tsx", projectRoot), "utf8");
