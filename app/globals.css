@@ -1308,3 +1308,20 @@ h3 { letter-spacing: -.02em; }
     width: min(214px, calc(100vw - 82px)) !important;
   }
 }
+
+/* The compact lockup must fit inside the scrolled bar, not stretch it. */
+.site-header--scrolled .brand-lockup--header {
+  width: clamp(220px, 18vw, 270px) !important;
+}
+
+@media (max-width: 760px) {
+  .site-header--scrolled .brand-lockup--header {
+    width: min(168px, calc(100vw - 130px)) !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .site-header--scrolled .brand-lockup--header {
+    width: min(154px, calc(100vw - 130px)) !important;
+  }
+}
