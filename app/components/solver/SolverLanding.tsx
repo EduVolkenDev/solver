@@ -178,7 +178,9 @@ function StayFinder() {
       form.area ? `Preferred area: ${form.area}` : "",
     ].filter(Boolean);
     const message = `Hello, I would like to find a Solver stay in London.${details.length ? `\n${details.join("\n")}` : ""}`;
-    window.location.assign(getConfiguredContactHref(message));
+    const contactHref = getConfiguredContactHref(message);
+    const whatsappWindow = window.open(contactHref, "_blank", "noopener,noreferrer");
+    if (!whatsappWindow) window.location.assign(contactHref);
   };
 
   return (

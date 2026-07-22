@@ -29,6 +29,11 @@ export function trackGoogleEvent(eventName: string, eventLabel?: string) {
 
 export default function AnalyticsTracker() {
   useEffect(() => {
+    document.querySelectorAll<HTMLAnchorElement>('[data-analytics-event="whatsapp_enquiry"]').forEach((link) => {
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+    });
+
     const handleClick = (event: MouseEvent) => {
       const target = event.target instanceof Element ? event.target.closest<AnalyticsEventElement>("[data-analytics-event]") : null;
       if (!target?.dataset.analyticsEvent) return;
