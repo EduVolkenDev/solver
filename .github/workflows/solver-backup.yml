@@ -1,0 +1,41 @@
+name: Solver daily backup
+
+on:
+  schedule:
+    - cron: "17 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  archive-source:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the production source
+        uses: actions/checkout@v4
+
+      - name: Create dated site archive
+        run: |
+          mkdir -p backup
+          archive_name="solver-accommodations-${GITHUB_SHA}-$(date -u +%Y%m%dT%H%M%SZ).tar.gz"
+          tar \
+            --exclude-vcs \
+            --exclude=node_modules \
+            --exclude=dist \
+            --exclude=.next \
+            --exclude=.wrangler \
+            --exclude=tmp \
+            -czf "backup/${archive_name}" .
+          {
+            echo "commit=${GITHUB_SHA}"
+            echo "created_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          } > backup/manifest.txt
+
+      - name: Retain the backup for the support term
+        uses: actions/upload-artifact@v4
+        with:
+          name: solver-site-backup-${{ github.run_id }}
+          path: backup/
+          if-no-files-found: error
+          retention-days: 100
