@@ -130,9 +130,9 @@ function BrandLogo({ compact = false, placement = "header" }: { compact?: boolea
   return (
     <a className={`brand-lockup brand-lockup--${placement} ${compact ? "brand-lockup--compact" : ""}`} href="#home" aria-label="Solver Accommodations home">
       <span className="brand-lockup__mark" aria-hidden="true">
-        <img src={brandIconImage} alt="" width="2023" height="2890" loading={compact || placement === "footer" ? "eager" : "lazy"} />
+        <img src={brandIconImage} alt="" width="122" height="174" loading={compact || placement === "footer" ? "eager" : "lazy"} />
       </span>
-      <img className="brand-lockup__wordmark" src={brandWordmarkImage} alt="Solver Accommodations" width="3096" height="1376" loading={compact || placement === "footer" ? "eager" : "lazy"} />
+      <img className="brand-lockup__wordmark" src={brandWordmarkImage} alt="Solver Accommodations" width="338" height="150" loading={compact || placement === "footer" ? "eager" : "lazy"} />
     </a>
   );
 }

@@ -73,7 +73,7 @@ h3 { letter-spacing: -.02em; }
 .hero__veil { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,13,10,.86) 0%, rgba(5,13,10,.58) 32%, rgba(5,13,10,.08) 72%, rgba(5,13,10,.24) 100%), linear-gradient(0deg, rgba(5,13,10,.54) 0%, transparent 40%, rgba(5,13,10,.08) 100%); animation: page-fade-in 1s ease .12s both; }
 .hero__grid { position: absolute; inset: 0; opacity: .2; background-image: linear-gradient(90deg, transparent calc(50% - .5px), rgba(228,196,119,.4) 50%, transparent calc(50% + .5px)); pointer-events: none; animation: page-fade-in 1.05s ease .22s both; }
 .hero__inner { position: relative; z-index: 1; display: flex; align-items: center; min-height: 100%; padding-top: 130px; }
-.hero__content { position: relative; z-index: 2; width: min(760px, 72%); }
+.hero__content { position: relative; z-index: 2; width: min(760px, 72%); margin: 100px 0 0; }
 .hero h1 { margin-bottom: 26px; font-size: clamp(56px, 6.5vw, 92px); }
 .hero__lede { width: min(500px, 100%); margin-bottom: 33px; color: rgba(245,241,232,.9); font-size: 17px; line-height: 1.7; text-shadow: 0 12px 28px rgba(0,0,0,.42); }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -412,7 +412,7 @@ h3 { letter-spacing: -.02em; }
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity .65s ease var(--reveal-delay), transform .65s ease var(--reveal-delay); }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
-@media (max-width: 1280px) {
+@media (max-width: 1320px) {
   html { scroll-padding-top: 162px; }
   .finder-panel { grid-template-columns: 1fr; gap: 26px; }
   .featured-stay { grid-template-columns: 1fr 1fr; }
@@ -450,7 +450,7 @@ h3 { letter-spacing: -.02em; }
   .hero__image { object-position: 63% center; }
   .hero__veil { background: linear-gradient(90deg, rgba(5,13,10,.97), rgba(5,13,10,.69)), linear-gradient(0deg, rgba(5,13,10,.9), transparent 55%); }
   .hero__inner { display: block; padding-top: 190px; }
-  .hero__content { width: 100%; }
+  .hero__content { width: 100%; margin-top: 0; }
   .hero__actions { display: grid; grid-template-columns: 1fr; gap: 12px; width: 100%; max-width: 360px; }
   .hero__actions .button { width: 100%; min-width: 0; padding-inline: 16px; }
   .hero__status { position: relative; z-index: 3; display: grid; grid-template-columns: 6px minmax(0, auto); width: min(100%, 360px); padding: 8px 10px; background: rgba(5,13,10,.64); backdrop-filter: blur(10px); font-size: 14px; line-height: 1.35; }
@@ -982,7 +982,7 @@ h3 { letter-spacing: -.02em; }
   display: none !important;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1180px) {
   .site-header .container {
     width: calc(100% - 44px);
   }
@@ -1344,7 +1344,7 @@ html {
 }
 
 .site-header .header-inner {
-  min-height: 126px !important;
+  min-height: 104px !important;
   gap: 24px;
   overflow: visible !important;
 }
@@ -1362,7 +1362,7 @@ html {
   gap: clamp(24px, 2vw, 38px) !important;
   width: auto !important;
   max-width: min(520px, 42vw) !important;
-  height: 126px !important;
+  height: 104px !important;
   min-width: 0 !important;
   margin: 0 !important;
   overflow: visible !important;
@@ -1373,9 +1373,9 @@ html {
   position: relative !important;
   top: auto !important;
   left: auto !important;
-  flex: 0 0 clamp(90px, 7.2vw, 122px) !important;
-  width: clamp(90px, 7.2vw, 122px) !important;
-  height: 126px !important;
+  flex: 0 0 clamp(68px, 5.4vw, 88px) !important;
+  width: clamp(68px, 5.4vw, 88px) !important;
+  height: 104px !important;
   place-items: center !important;
   margin: 0 !important;
   overflow: visible !important;
@@ -1386,7 +1386,7 @@ html {
   position: relative !important;
   top: auto !important;
   left: auto !important;
-  width: clamp(88px, 7vw, 118px) !important;
+  width: clamp(66px, 5.2vw, 84px) !important;
   max-width: none !important;
   height: auto !important;
   object-fit: contain !important;
@@ -1399,7 +1399,7 @@ html {
   position: relative !important;
   top: auto !important;
   left: auto !important;
-  width: clamp(230px, 21vw, 338px) !important;
+  width: clamp(220px, 18vw, 292px) !important;
   max-width: none !important;
   height: auto !important;
   margin: 0 !important;
@@ -1410,7 +1410,7 @@ html {
 
 .site-header--scrolled .brand-lockup--header {
   gap: 18px !important;
-  max-width: 340px !important;
+  max-width: 292px !important;
   height: 72px !important;
 }
 
@@ -1426,7 +1426,7 @@ html {
 }
 
 .site-header--scrolled .brand-lockup--header .brand-lockup__wordmark {
-  width: clamp(165px, 14vw, 230px) !important;
+  width: clamp(158px, 12vw, 204px) !important;
 }
 
 .site-header--scrolled .site-nav {
@@ -1466,7 +1466,7 @@ html {
   }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1180px) {
   html {
     scroll-padding-top: 100px;
   }
@@ -1484,7 +1484,7 @@ html {
   }
 
   .site-header .header-inner {
-    min-height: 94px !important;
+    min-height: 86px !important;
   }
 
   .site-header--scrolled .header-inner {
@@ -1494,21 +1494,21 @@ html {
   .site-header .brand-lockup--header {
     gap: 20px !important;
     max-width: calc(100vw - 118px) !important;
-    height: 94px !important;
+    height: 86px !important;
   }
 
   .site-header .brand-lockup--header .brand-lockup__mark {
-    flex-basis: 74px !important;
-    width: 74px !important;
-    height: 94px !important;
+    flex-basis: 60px !important;
+    width: 60px !important;
+    height: 86px !important;
   }
 
   .site-header .brand-lockup--header .brand-lockup__mark img {
-    width: 74px !important;
+    width: 58px !important;
   }
 
   .site-header .brand-lockup--header .brand-lockup__wordmark {
-    width: min(230px, calc(100vw - 230px)) !important;
+    width: min(214px, calc(100vw - 214px)) !important;
   }
 
   .site-header--scrolled .brand-lockup--header {
@@ -1550,7 +1550,7 @@ html {
   }
 
   .site-header .header-inner {
-    min-height: 96px !important;
+    min-height: 84px !important;
   }
 
   .site-header--scrolled .header-inner {
@@ -1560,21 +1560,21 @@ html {
   .site-header .brand-lockup--header {
     gap: 14px !important;
     max-width: calc(100vw - 96px) !important;
-    height: 96px !important;
+    height: 84px !important;
   }
 
   .site-header .brand-lockup--header .brand-lockup__mark {
-    flex-basis: 78px !important;
-    width: 78px !important;
-    height: 96px !important;
+    flex-basis: 58px !important;
+    width: 58px !important;
+    height: 84px !important;
   }
 
   .site-header .brand-lockup--header .brand-lockup__mark img {
-    width: 76px !important;
+    width: 56px !important;
   }
 
   .site-header .brand-lockup--header .brand-lockup__wordmark {
-    width: min(165px, calc(100vw - 194px)) !important;
+    width: min(154px, calc(100vw - 174px)) !important;
   }
 
   .site-header--scrolled .brand-lockup--header {
