@@ -1715,6 +1715,43 @@ html {
   }
 }
 
+/* Keep the mobile menu control aligned with the header lockup at every compact breakpoint. */
+.site-header .header-actions {
+  align-items: center !important;
+  align-self: center !important;
+  flex: 0 0 auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+}
+
+.site-header .menu-toggle {
+  align-items: center !important;
+  align-self: center !important;
+  display: grid !important;
+  flex: 0 0 48px !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+}
+
+@media (max-width: 760px) {
+  .site-header:not(.site-header--scrolled) .header-actions {
+    transform: translateY(7px) !important;
+  }
+
+  .site-header--scrolled .header-actions {
+    transform: translateY(0) !important;
+  }
+
+  .site-header .menu-toggle {
+    flex-basis: 54px !important;
+    width: 54px !important;
+    height: 54px !important;
+  }
+}
+
 .footer-brand .brand-lockup--footer {
   display: block !important;
   width: min(680px, 100%) !important;
