@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: solverConfig.metadata.siteUrl,
     type: "website",
     locale: "en_GB",
-    images: [{ url: "/assets/solver-hero.webp", width: 1800, height: 1013, alt: "Warm boutique accommodation interior in London" }],
+    images: [{ url: "/assets/solver-hero.webp", width: 1800, height: 1013, alt: "Preview of the future Solver Accommodations experience in London" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "LodgingBusiness",
+  "@type": "Organization",
   name: solverConfig.brand.legalName,
   alternateName: solverConfig.brand.displayName,
   description: solverConfig.metadata.description,

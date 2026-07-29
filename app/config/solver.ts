@@ -2,6 +2,7 @@ const publicSiteUrl = typeof process !== "undefined" ? process.env.NEXT_PUBLIC_S
 const publicWhatsAppNumber = typeof process !== "undefined" ? process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.trim() ?? "" : "";
 const configuredWhatsAppNumber = publicWhatsAppNumber || "447557287333";
 const publicEmail = typeof process !== "undefined" ? process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() ?? "" : "";
+const configuredEmail = publicEmail || "Contact@solveraccommodations.com";
 const publicAirbnbUrl = typeof process !== "undefined" ? process.env.NEXT_PUBLIC_AIRBNB_URL?.trim() ?? "" : "";
 const publicBookingUrl = typeof process !== "undefined" ? process.env.NEXT_PUBLIC_BOOKING_URL?.trim() ?? "" : "";
 const publicGoogleAnalyticsId = typeof process !== "undefined" ? process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID?.trim() ?? "" : "";
@@ -18,7 +19,7 @@ export const solverConfig = {
   },
   contact: {
     whatsappNumber: configuredWhatsAppNumber,
-    email: publicEmail,
+    email: configuredEmail,
     city: "London",
     country: "United Kingdom",
     serviceArea: "London, United Kingdom",
@@ -35,9 +36,9 @@ export const solverConfig = {
     mapsUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(googleMapsQuery)}`,
   },
   metadata: {
-    title: "Solver Accommodations | Short-Term Stays in London",
+    title: "Solver Accommodations | Coming Soon in London",
     description:
-      "Comfortable stays and thoughtfully solved short-term accommodation in London for business trips, city breaks, university visits and property owners.",
+      "Solver Accommodations is preparing a considered new experience for short-term stays and property management in London.",
     siteUrl: (publicSiteUrl || "https://solveraccommodations.com").replace(/\/+$/, ""),
     author: "Solver Accommodations",
     keywords: [
@@ -49,7 +50,8 @@ export const solverConfig = {
     ],
   },
   launch: {
-    bookingExperienceLabel: "A new booking experience is coming soon.",
+    bookingExperienceLabel: "A new Solver experience is coming soon.",
+    previewMode: true,
     directBookingReady: false,
   },
   features: {
@@ -69,11 +71,15 @@ export const solverConfig = {
     { label: "FAQs", href: "#faqs" },
     { label: "Contact", href: "#contact" },
   ],
-  primaryNavigationCta: { label: "Check Availability", href: "#availability" },
+  primaryNavigationCta: { label: "Coming soon", href: "#launch" },
 } as const;
 
 export const defaultWhatsAppMessage =
-  "Hello, I found Solver Accommodations through the website and I would like to enquire about availability for a short stay in London.";
+  "Hello Solver team, I would like to receive updates about the upcoming Solver Accommodations launch in London.";
+
+export const defaultEmailSubject = "Upcoming launch | Solver Accommodations";
+export const defaultEmailMessage =
+  "Hello Solver team,\n\nI would like to receive updates about the upcoming Solver Accommodations launch in London.\n\nMy name:\nBest contact details:\n\nThank you,";
 
 export function buildWhatsAppLink(message = defaultWhatsAppMessage) {
   const number = (solverConfig.contact.whatsappNumber ?? "").replace(/\D/g, "");
@@ -85,4 +91,12 @@ export function buildWhatsAppLink(message = defaultWhatsAppMessage) {
 
 export function getConfiguredContactHref(message?: string) {
   return buildWhatsAppLink(message) ?? "#contact";
+}
+
+export function buildEmailLink(subject = defaultEmailSubject, message = defaultEmailMessage) {
+  const email = solverConfig.contact.email?.trim();
+
+  if (!email) return "#contact";
+
+  return `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
 }
